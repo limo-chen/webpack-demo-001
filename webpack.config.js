@@ -7,5 +7,19 @@ module.exports = {
   output: {
     filename: "[name].[contenthash].js",
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "圆圆",
+      template: "src/assets/index.html",
+    }),
+  ],
+
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
 };
